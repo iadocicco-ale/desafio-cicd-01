@@ -47,3 +47,4 @@ jobs:
           tags: |
             iadocicco/projeto-devops-pro:latest
             iadocicco/projeto-devops-pro:v${{ github.run_number }}
+      
