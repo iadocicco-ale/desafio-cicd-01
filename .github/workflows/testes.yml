@@ -45,12 +45,16 @@ jobs:
               env:
                 ConnectionStrings__DefaultConnection: "Host=localhost;Port=5432;Database=review-filmes;Username=review;Password=postgrespwd"
     
-    sonarqube:
-        name: Scan com SonarQube
-        runs-on: ubuntu:latest
+    sonar:
+        name: Teste de Unidade
+        runs-on: ubuntu-latest
         steps:
-            - name: Obtendo o codigo do projeto
-              uses: actions/checkout@v4            
+          - name: Obtendo o codigo do projeto
+            uses: actions/checkout@v4
+          - name: Setup dotnet
+            uses: actions/setup-dotnet@v4
+            with:
+              dotnet-version: "8.0.300"           
             
 
 
