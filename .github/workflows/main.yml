@@ -25,6 +25,7 @@ jobs:
   testes:
     needs: [build]
     uses: iadocicco-ale/desafio-cicd-01/.github/workflows/testes.yml@main
+    secrets: inherit
 
   release:
     name: Criacao de release
