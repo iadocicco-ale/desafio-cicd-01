@@ -44,18 +44,15 @@ jobs:
               run: dotnet test ./Review-Filmes.Test.Integration/Review-Filmes.Test.Integration.csproj
               env:
                 ConnectionStrings__DefaultConnection: "Host=localhost;Port=5432;Database=review-filmes;Username=review;Password=postgrespwd"
-
+    
     sonarqube:
         name: Scan com SonarQube
         runs-on: ubuntu:latest
         steps:
             - name: Obtendo o codigo do projeto
               uses: actions/checkout@v4            
-            - name: Setup JDK
-              uses: actions/setup-java@v4
-              with:
-                distribution: adopt
-                java-version: '21'
+            
+
 
 
 
