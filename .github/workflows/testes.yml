@@ -46,7 +46,7 @@ jobs:
                 ConnectionStrings__DefaultConnection: "Host=localhost;Port=5432;Database=review-filmes;Username=review;Password=postgrespwd"
     
     sonar:
-        name: Teste de Unidade
+        name: Scan com o SonarQube
         runs-on: ubuntu-latest
         steps:
           - name: Obtendo o codigo do projeto
