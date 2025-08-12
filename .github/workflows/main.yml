@@ -80,7 +80,7 @@ jobs:
       environment-name: homologacao
       environment-url: http://homologacao.k8s.local/
 
-    deploy-producao:
+  deploy-producao:
     needs: [release]
     uses: iadocicco-ale/desafio-cicd-01/.github/workflows/deploy.yml@main
     secrets: inherit
