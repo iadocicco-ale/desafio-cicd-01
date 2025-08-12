@@ -73,4 +73,23 @@ spec:
     - port: 80
       targetPort: 8080
       #nodePort: 30000
-  type: NodePort
+  type: ClusterIP
+---
+kind: Ingress
+metadata:
+  name: reviewfilmes
+  labels:
+    name: reviewfilmes
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: homologacao.k8s.local
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: reviewfilmes
+            port:
+              number: 80
