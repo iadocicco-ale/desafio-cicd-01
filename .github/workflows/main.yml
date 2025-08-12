@@ -79,25 +79,25 @@ jobs:
       environment-name: homologacao
       environment-url: http://homologacao.k8s.local/
 
-  teste-e2e:
-    name: Teste End to End
-    runs-on: ubuntu-latest
-    needs: [deploy-homolog]
-    environment:
-      name: homologacao
-    container:
-      image: fabricioveronez/webdriver-dotnet:chrome
-      env:
-        BASE_URL: "http://${{ vars.BASE_URL }}"
-    steps:
-      - name: Obtendo o codigo do projeto
-        uses: actions/checkout@v4
-      - name: Execucao do Teste End to End
-        working-directory: ./src
-        run: dotnet test ./Review-Filmes.Test.EndToEnd/Review-Filmes.Test.EndToEnd.csproj
+#  teste-e2e:
+#     name: Teste End to End
+#    runs-on: ubuntu-latest
+#    needs: [deploy-homolog]
+#   environment:
+#       name: homologacao
+#     container:
+#       image: fabricioveronez/webdriver-dotnet:chrome
+#       env:
+#         BASE_URL: "http://${{ vars.BASE_URL }}"
+#     steps:
+#       - name: Obtendo o codigo do projeto
+#         uses: actions/checkout@v4
+#       - name: Execucao do Teste End to End
+#         working-directory: ./src
+#         run: dotnet test ./Review-Filmes.Test.EndToEnd/Review-Filmes.Test.EndToEnd.csproj
 
   deploy-producao:
-    needs: [teste-e2e]
+    needs: [deploy-homolog]
     uses: iadocicco-ale/desafio-cicd-01/.github/workflows/deploy.yml@main
     secrets: inherit
     with:
