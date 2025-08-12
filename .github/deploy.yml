@@ -1,7 +1,6 @@
 name: Deploy no Kubernetes
 on:
     workflow_call:
-
 jobs:
     deploy:
         name: "Deploy"
