@@ -73,24 +73,4 @@ spec:
     - port: 80
       targetPort: 8080
       #nodePort: 30000
-  type: LoadBalancer
----
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: reviewfilmes
-  labels:
-    name: reviewfilmes
-spec:
-  ingressClassName: nginx
-  rules:
-  - host: homologacao.fabricioveronez.com
-    http:
-      paths:
-      - pathType: Prefix
-        path: "/"
-        backend:
-          service:
-            name: reviewfilmes
-            port: 
-              number: 80
+  type: NodePort
